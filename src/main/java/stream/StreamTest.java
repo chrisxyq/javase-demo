@@ -11,7 +11,13 @@ import java.util.stream.Stream;
  * @author yuanqixu
  */
 public class StreamTest {
+    @Test
+    public void shuXingTest0() {
+        List<Person> personList = null;
 
+        List<String> names = personList.stream().map(person -> person.getName()).collect(Collectors.toList());
+        System.out.println("names：" + names);
+    }
     /**
      * 取出实体类的某个属性作为list
      */

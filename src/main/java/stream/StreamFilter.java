@@ -1,5 +1,6 @@
 package stream;
 
+import entity.Manager;
 import entity.Person;
 import org.junit.Test;
 
@@ -8,6 +9,36 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamFilter {
+    /**
+     */
+    @Test
+    public void filterTest0() {
+        List<Person> personList1 = new ArrayList<Person>();
+        List<Person> personList2 = new ArrayList<Person>();
+        List<Manager> managerList = new ArrayList<Manager>();
+        personList1.add(new Person("Tom", 8900, 23, "male", "New York"));
+        personList1.add(new Person("Jack", 7000, 25, "male", "Washington"));
+        Manager manager1 = new Manager(personList1);
+
+        personList2.add(new Person("Lily", 7800, 21, "female", "Washington"));
+        personList2.add(new Person("Anni", 8200, 24, "female", "New York"));
+        personList2.add(new Person("Owen", 9500, 25, "male", "New York"));
+        personList2.add(new Person("Alisa", 7900, 26, "female", "New York"));
+        Manager manager2 = new Manager(personList2);
+        managerList.add(manager1);
+        managerList.add(manager2);
+        List<String> nameList = new ArrayList<>();
+        //managerList.stream().collect(Collectors.toMap(p -> p.getPersonList().get(), p -> p))
+        //managerList.forEach(manager -> {
+        //    List<Person> persons = manager.personList;
+        //    persons = persons.stream().filter(person -> person.getAge()>24).collect(Collectors.toList());
+        //    List<String> collect = persons.stream().map(Person::getName).collect(Collectors.toList());
+        //    manager.setPersonList(persons);
+        //    nameList.addAll(collect);
+        //});
+        managerList.forEach(System.out::println);
+        nameList.forEach(System.out::println);
+    }
     /**
      * 年龄为偶数，工资大于7000的最后一名员工大写的年龄
      */
@@ -20,13 +51,15 @@ public class StreamFilter {
         personList.add(new Person("Anni", 8200, 24, "female", "New York"));
         personList.add(new Person("Owen", 9500, 25, "male", "New York"));
         personList.add(new Person("Alisa", 7900, 26, "female", "New York"));
-
-        Stream<String> stringStream = personList.stream().filter(u -> u.getAge() % 2 == 0)
-                .filter(u -> u.getSalary() > 7000)
-                .map(m -> m.getName().toUpperCase())
-                .sorted((Comparator.reverseOrder()))
-                .limit(1);
-        stringStream.forEach(System.out::println);
+        personList.stream().filter(u -> u.getAge() % 2 == 0)
+                .filter(u -> u.getSalary() > 7000).collect(Collectors.toList());
+        //Stream<String> stringStream = personList.stream().filter(u -> u.getAge() % 2 == 0)
+        //        .filter(u -> u.getSalary() > 7000)
+        //        .map(m -> m.getName().toUpperCase())
+        //        .sorted((Comparator.reverseOrder()))
+        //        .limit(1);
+        //stringStream.forEach(System.out::println);
+        personList.forEach(System.out::println);
     }
 
 
