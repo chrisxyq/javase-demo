@@ -9,7 +9,19 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamFilter {
+    @Test
+    public void filterTest01() {
+        List<Person> personList = new ArrayList<Person>();
+        personList.add(new Person(null, 8900, 23, "male", "New York"));
+        personList.add(new Person("Jack", 7000, 25, "male", "Washington"));
+        List<String> nameList = personList.stream().filter(u -> u.getName() != null).map(Person::getName).collect(Collectors.toList());
+        List<String> nameList1 = personList.stream().map(Person::getName).collect(Collectors.toList());
+        System.out.println(nameList.toString());
+        System.out.println(nameList1.toString());
+    }
+
     /**
+     *
      */
     @Test
     public void filterTest0() {
@@ -39,6 +51,7 @@ public class StreamFilter {
         managerList.forEach(System.out::println);
         nameList.forEach(System.out::println);
     }
+
     /**
      * 年龄为偶数，工资大于7000的最后一名员工大写的年龄
      */
