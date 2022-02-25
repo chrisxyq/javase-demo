@@ -24,4 +24,17 @@ public class SortTest {
         });
         System.out.println(recommendPoiTypes.toString());
     }
+    @Test
+    public void test1(){
+        List<RecommendPoiType> recommendPoiTypes = new ArrayList<>(Arrays.asList(new RecommendPoiType(false, 1)));
+        System.out.println(recommendPoiTypes.toString());
+        recommendPoiTypes.sort((o1, o2) -> {
+            if (o1.isInHotel() ^ o2.isInHotel()) {
+                return o1.isInHotel() ? -1 : 1;
+            } else {
+                return 0;
+            }
+        });
+        System.out.println(recommendPoiTypes.toString());
+    }
 }
