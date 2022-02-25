@@ -28,34 +28,7 @@ public class ListTest {
         System.out.println(directSaleToPercent(BigDecimal.valueOf(10)));
         System.out.println(directSaleToPercent(BigDecimal.valueOf(11)));
     }
-    @Test
-    public void test1() {
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.15))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.155))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(0))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(-1))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(0), BigDecimal.valueOf(-1))));
-        System.out.println(xSaleyTypeToPercent(new FullXSaleYType(BigDecimal.valueOf(150), BigDecimal.valueOf(70))));
 
-    }
-    /**
-     * 优惠方式=“满X减Y”时 转“返现**%”
-     * 去掉BigDecimal类型变量小数点后多余的零
-     * @param x_sale_yType
-     * @return
-     */
-    private String xSaleyTypeToPercent(FullXSaleYType x_sale_yType) {
-        String percent = "";
-        if (x_sale_yType != null) {
-            if (x_sale_yType.getX() != null && x_sale_yType.getY() != null && x_sale_yType.getX().compareTo(BigDecimal.ZERO) > 0 && x_sale_yType.getY().compareTo(BigDecimal.ZERO) > 0) {
-                BigDecimal minused = x_sale_yType.getY().divide(x_sale_yType.getX(), 3, BigDecimal.ROUND_DOWN).multiply(BigDecimal.valueOf(100));
-                percent = minused.stripTrailingZeros().toPlainString();
-            }
-        }
-        return percent;
-    }
     /**
      * 优惠方式=“X折” 转“返现**%”
      *
