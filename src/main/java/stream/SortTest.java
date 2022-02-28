@@ -37,4 +37,10 @@ public class SortTest {
         });
         System.out.println(recommendPoiTypes.toString());
     }
+    @Test
+    public void test2(){
+        double num=1D/0D;
+        System.out.println(num);
+
+    }
 }

@@ -1,5 +1,3 @@
-package stream;
-
 import entity.FullXSaleYType;
 import org.junit.Test;
 
