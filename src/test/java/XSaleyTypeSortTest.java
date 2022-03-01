@@ -17,7 +17,7 @@ public class XSaleyTypeSortTest {
     @Test
     public void test() {
         FullXSaleYType xSaleYType = new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1));
-        log.info("xSaleYType:{}", new Gson().toJson(xSaleYType));
+        log.info("XSaleYType:{}", new Gson().toJson(xSaleYType));
     }
 
     @Test

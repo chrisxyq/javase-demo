@@ -8,8 +8,8 @@ import utils.ReadUtils;
 public class ReadUtilsTest {
     @Test
     public void test() {
-        String viewBagPath = "/home/index/viewBag.json";
+        String viewBagPath = "/XSaleYType.json";
         FullXSaleYType xSaleYType = ReadUtils.getObjFromFile(viewBagPath, FullXSaleYType.class);
-        log.info("xSaleYType:{}", new Gson().toJson(xSaleYType));
+        log.info("XSaleYType:{}", new Gson().toJson(xSaleYType));
     }
 }
