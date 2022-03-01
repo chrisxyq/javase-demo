@@ -23,6 +23,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
         </dependency>
+        <!--        需要引入才能打印日志-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.10</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

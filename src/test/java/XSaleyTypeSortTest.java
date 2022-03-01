@@ -1,4 +1,6 @@
+import com.google.gson.Gson;
 import entity.FullXSaleYType;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -10,15 +12,22 @@ import java.util.List;
 /**
  * @author yuanqixu
  */
+@Slf4j
 public class XSaleyTypeSortTest {
     @Test
+    public void test() {
+        FullXSaleYType xSaleYType = new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1));
+        log.info("xSaleYType:{}", new Gson().toJson(xSaleYType));
+    }
+
+    @Test
     public void test1() {
-        System.out.println(xSaleyTypeListToPercent(new ArrayList<>(Arrays.asList(
+        log.info(xSaleyTypeListToPercent(new ArrayList<>(Arrays.asList(
                 new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1))))));
-        System.out.println(xSaleyTypeListToPercent(new ArrayList<>(Arrays.asList(
+        log.info(xSaleyTypeListToPercent(new ArrayList<>(Arrays.asList(
                 new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1)),
                 new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(40.1))))));
-        System.out.println(xSaleyTypeListToPercent(new ArrayList<>(Arrays.asList(
+        log.info(xSaleyTypeListToPercent(new ArrayList<>(Arrays.asList(
                 new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1)),
                 new FullXSaleYType(BigDecimal.valueOf(-1), BigDecimal.valueOf(40.1)),
                 new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(-1))))));
@@ -26,7 +35,7 @@ public class XSaleyTypeSortTest {
         objects.add(null);
         objects.add(new FullXSaleYType(BigDecimal.valueOf(100), BigDecimal.valueOf(30.1)));
         objects.add(new FullXSaleYType(BigDecimal.valueOf(-1), BigDecimal.valueOf(40.1)));
-        System.out.println(xSaleyTypeListToPercent(objects));
+        log.info(xSaleyTypeListToPercent(objects));
 
     }
 
@@ -54,7 +63,7 @@ public class XSaleyTypeSortTest {
      */
     private String xSaleyTypeToPercent(FullXSaleYType x_sale_yType) {
         BigDecimal bigDecimal = xSaleyTypeToPercentBigDecimal(x_sale_yType);
-        return bigDecimal != null&&bigDecimal.compareTo(BigDecimal.ZERO)>0 ? bigDecimal.toPlainString() : "";
+        return bigDecimal != null && bigDecimal.compareTo(BigDecimal.ZERO) > 0 ? bigDecimal.toPlainString() : "";
     }
 
     private BigDecimal xSaleyTypeToPercentBigDecimal(FullXSaleYType x_sale_yType) {
