@@ -30,4 +30,7 @@ public class Person {
         this.area = area;
     }
 
+    public Person(String name) {
+        this.name = name;
+    }
 }

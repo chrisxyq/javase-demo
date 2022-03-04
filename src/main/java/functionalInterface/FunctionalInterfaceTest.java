@@ -3,6 +3,7 @@ package functionalInterface;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
+import utils.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,4 +27,5 @@ public class FunctionalInterfaceTest {
         String newStr = ExternalCatchCalling.execute("abc", (str) -> str.toUpperCase());
         System.out.println(newStr);
     }
+
 }
