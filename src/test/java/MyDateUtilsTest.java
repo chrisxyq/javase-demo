@@ -2,6 +2,7 @@ import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 import utils.MyDateUtils;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -66,5 +67,10 @@ public class MyDateUtilsTest {
         Calendar startCalendar = Calendar.getInstance();
         startCalendar.setTime(startDate);
         System.out.println(MyDateUtils.calendarToString(startCalendar, "yyyy/MM/dd"));
+    }
+    @Test
+    public void test6() {
+        BigDecimal b1 = BigDecimal.valueOf(-3.14);
+        System.out.println("b1 double value = " + b1.doubleValue());
     }
 }

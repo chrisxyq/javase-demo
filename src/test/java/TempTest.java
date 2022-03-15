@@ -75,5 +75,9 @@ public class TempTest {
     }
     @Test
     public void test8() {
+        System.out.println(OfferTypeEnum.AdvanceRebate.toString());
+        System.out.println(OfferTypeEnum.valueOf("AdvanceRebate"));
+        System.out.println(OfferTypeEnum.valueOf("AdvanceRebatte"));
+        System.out.println(new ArrayList<>(Arrays.asList(OfferTypeEnum.values())).contains());
     }
 }
